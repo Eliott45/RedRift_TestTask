@@ -61,3 +61,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+RedRift TestTask/Temp
+RedRift TestTask/Library
+RedRift TestTask/Logs
+RedRift TestTask/UserSettings/EditorUserSettings.asset
