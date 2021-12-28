@@ -65,3 +65,5 @@ RedRift TestTask/Temp
 RedRift TestTask/Library
 RedRift TestTask/Logs
 RedRift TestTask/UserSettings/EditorUserSettings.asset
+RedRift TestTask/.idea
+RedRift TestTask/obj
