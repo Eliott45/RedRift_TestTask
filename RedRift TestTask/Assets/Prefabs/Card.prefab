@@ -1077,15 +1077,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1f224998f240e468b148a2e546668d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _card: {fileID: 812109377040276263}
-  _art: {fileID: 812109376764163774}
-  _defaultArtLayer: 1
+  _spritesOrders:
+  - _renderer: {fileID: 812109377040276263}
+    _order: 0
+  - _renderer: {fileID: 812109376717279683}
+    _order: 2
+  - _renderer: {fileID: 812109376897616576}
+    _order: 2
+  - _renderer: {fileID: 812109376958933326}
+    _order: 2
+  - _renderer: {fileID: 812109375545119088}
+    _order: 2
+  - _renderer: {fileID: 812109376764163774}
+    _order: 1
   _UI: {fileID: 812109375288417639}
   _defaultUILayer: 3
-  _title: {fileID: 812109376717279683}
-  _defaultTitleLayer: 2
-  _countersBackground:
-  - {fileID: 812109376897616576}
-  - {fileID: 812109376958933326}
-  - {fileID: 812109375545119088}
-  _defaultCountersBackgroundLayer: 2
