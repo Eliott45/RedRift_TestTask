@@ -23,6 +23,11 @@ public class Hand : MonoBehaviour
         _cards.Remove(other.gameObject);
         NormalizeDeck();
     }
+    
+    public void ResetFeatureCards()
+    {
+        foreach (var card in _cards) card.GetComponent<Card>().SetRandomFeature();
+    }
 
     private void NormalizeDeck()
     {
@@ -37,9 +42,5 @@ public class Hand : MonoBehaviour
             _cards[i].GetComponent<LayoutController>().SetLayout(-i);
         }
     }
-
-    public void ResetFeatureCards()
-    {
-        foreach (var card in _cards) card.GetComponent<Card>().SetRandomFeature();
-    }
+    
 }

@@ -18,7 +18,7 @@ public static class CardHandler
         return null;
     }
 
-    public static int GetRandomValue(int min = -2, int max = 9) => Random.Range(min, max);
+    public static int GetRandomValue(int min = -2, int max = 10) => Random.Range(min, max);
     
-    public static int GetRandomIndex() => Random.Range(0, 2);
+    public static int GetRandomIndex() => Random.Range(0, 3);
 }

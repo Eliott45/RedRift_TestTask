@@ -1064,6 +1064,7 @@ MonoBehaviour:
   _ManaCost: {fileID: 812109376014840993}
   _AttackDamage: {fileID: 812109375857099416}
   _HealthPoints: {fileID: 812109375826681933}
+  _animCounterDuration: 0.5
 --- !u!114 &2903754754629137299
 MonoBehaviour:
   m_ObjectHideFlags: 0

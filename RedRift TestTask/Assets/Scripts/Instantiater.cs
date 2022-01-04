@@ -13,7 +13,7 @@ public class Instantiater : MonoBehaviour
 
     private void SpawnCards()
     {
-        var amount = Random.Range(4, 6);
+        var amount = Random.Range(4, 7);
         for (var i = 0; i < amount; i++)
         {
             _cardPrefab.name = i.ToString(); // Нужно убрать

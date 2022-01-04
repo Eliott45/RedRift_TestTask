@@ -1,6 +1,7 @@
-using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class Card : MonoBehaviour
     [SerializeField] private Text _ManaCost;
     [SerializeField] private Text _AttackDamage;
     [SerializeField] private Text _HealthPoints;
+    [SerializeField] private float _animCounterDuration = 1f;
     
     private readonly Dictionary<string, int> _counters = new Dictionary<string, int>
     {
@@ -19,34 +21,14 @@ public class Card : MonoBehaviour
     };
     
     private Texture2D _texture;
-
+    
     private void Awake()
     {
         GetDefaultFeatures();
         SetArt();
     }
-
-    private async void SetArt()
-    {
-        _texture = await CardHandler.GetRemoteRandomTexture();
-        _art.sprite = Sprite.Create(_texture, 
-            new Rect(0.0f, 0.0f, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 100.0f); 
-    }
-
-    private void GetDefaultFeatures()
-    {
-        _counters["Mana"] = CardHandler.GetRandomValue(0);
-        _counters["Attack"] = CardHandler.GetRandomValue(0);
-        _counters["Health"] = CardHandler.GetRandomValue(0);
-        SetFeatures();
-    }
-
-    private void SetFeatures()
-    {
-        _ManaCost.text = _counters["Mana"].ToString();
-        _AttackDamage.text = _counters["Attack"].ToString();
-        _HealthPoints.text = _counters["Health"].ToString();
-    }
+    
+    private void OnDestroy () => Dispose();
 
     public void SetRandomFeature()
     {
@@ -55,7 +37,43 @@ public class Card : MonoBehaviour
         SetFeatures();
     }
     
-    private void OnDestroy () => Dispose();
+    private async void SetArt()
+    {
+        _texture = await CardHandler.GetRemoteRandomTexture();
+        _art.sprite = Sprite.Create(_texture, 
+                new Rect(0.0f, 0.0f, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 100f);
 
-    private void Dispose () => Destroy(_texture); 
+    }
+
+    private void GetDefaultFeatures()
+    {
+        _counters["Mana"] = CardHandler.GetRandomValue();
+        _counters["Attack"] = CardHandler.GetRandomValue();
+        _counters["Health"] = CardHandler.GetRandomValue(1);
+        SetFeatures();
+    }
+
+    private void SetFeatures()
+    {
+        AnimateCounter(_ManaCost, _counters["Mana"]);
+        AnimateCounter(_AttackDamage, _counters["Attack"]);
+        AnimateCounter(_HealthPoints, _counters["Health"]).OnComplete(CheckHealth);
+    }
+
+    private void CheckHealth()
+    {
+        if(_counters["Health"] <= 0) Dispose();
+    }
+
+    private Tweener AnimateCounter(Text text, int to)
+    {
+        return DOVirtual.Float(int.Parse(text.text), to, _animCounterDuration, v
+            => text.text = Mathf.Floor(v).ToString(CultureInfo.InvariantCulture));
+    }
+
+    private void Dispose()
+    {
+        gameObject.SetActive(false);
+        Destroy(_texture);
+    }
 }
