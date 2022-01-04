@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Utils;
 
 public class Card : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _art;
-    [SerializeField] private Text _ManaCost;
-    [SerializeField] private Text _AttackDamage;
-    [SerializeField] private Text _HealthPoints;
+    [SerializeField] private TMP_Text _ManaCost;
+    [SerializeField] private TMP_Text _AttackDamage;
+    [SerializeField] private TMP_Text _HealthPoints;
     [SerializeField] private float _animCounterDuration = 1f;
     
     private readonly Dictionary<string, int> _counters = new Dictionary<string, int>
@@ -61,7 +61,7 @@ public class Card : MonoBehaviour
         if(_counters["Health"] <= 0) Dispose();
     }
 
-    private Tweener AnimateCounter(Text text, int to)
+    private Tweener AnimateCounter(TMP_Text text, int to)
     {
         return DOVirtual.Float(int.Parse(text.text), to, _animCounterDuration, v
             => text.text = Mathf.Floor(v).ToString(CultureInfo.InvariantCulture));
