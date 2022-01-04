@@ -33,6 +33,8 @@ public class Hand : MonoBehaviour
             var y = Math.Abs(angle) * _height;
             _cards[i].transform.DOMove(new Vector2(x * _distance, transform.position.y - y), _animDuration);
             _cards[i].transform.DORotate(new Vector3(0, 0, -angle), _animDuration);
+            
+            _cards[i].GetComponent<LayoutController>().SetLayout(-i);
         }
     }
 }

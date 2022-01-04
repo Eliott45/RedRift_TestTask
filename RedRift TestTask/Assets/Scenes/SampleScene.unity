@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80641b57f1243e344ae8307d5a7dcb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _degreeRotation: 4
+  _degreeRotation: 3
+  _distance: 2
   _height: 0.04
   _animDuration: 0.5

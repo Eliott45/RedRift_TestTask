@@ -299,7 +299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.318, y: 0.35990012}
+  m_AnchoredPosition: {x: -0.31799996, y: 0.35990012}
   m_SizeDelta: {x: 0.5831001, y: 0.54589987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &812109375826681932
@@ -921,6 +921,8 @@ GameObject:
   - component: {fileID: 812109377040276263}
   - component: {fileID: 7231975295965315185}
   - component: {fileID: -8283719232979940858}
+  - component: {fileID: 1923876492933557040}
+  - component: {fileID: 2903754754629137299}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -1046,3 +1048,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1923876492933557040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812109377040276248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5d442d8355bd44a81670763c4b79a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2903754754629137299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812109377040276248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1f224998f240e468b148a2e546668d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _card: {fileID: 812109377040276263}
+  _art: {fileID: 812109376764163774}
+  _defaultArtLayer: 1
+  _UI: {fileID: 812109375288417639}
+  _defaultUILayer: 3
+  _title: {fileID: 812109376717279683}
+  _defaultTitleLayer: 2
+  _countersBackground:
+  - {fileID: 812109376897616576}
+  - {fileID: 812109376958933326}
+  - {fileID: 812109375545119088}
+  _defaultCountersBackgroundLayer: 2
