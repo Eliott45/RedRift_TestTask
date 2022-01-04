@@ -17,7 +17,9 @@ public class Instantiater : MonoBehaviour
         var amount = CardHandler.GetRandomAmountInitialCards();
         for (var i = 0; i < amount; i++)
         {
-            Instantiate(_cardPrefab, _hand);
+            var go = _cardPrefab;
+            go.name = i.ToString();
+            Instantiate(go, _hand);
         }
     }
 }

@@ -1,28 +1,21 @@
+using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using DG.Tweening;
-using TMPro;
 using UnityEngine;
 using Utils;
 
 public class Card : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _art;
-    [SerializeField] private TMP_Text _ManaCost;
-    [SerializeField] private TMP_Text _AttackDamage;
-    [SerializeField] private TMP_Text _HealthPoints;
-    [SerializeField] private float _animCounterDuration = 1f;
-    
-    private readonly Dictionary<string, int> _counters = new Dictionary<string, int>
+    public Sprite art;
+    public event Action ArtChanged;
+    public event Action FeatureChanged;
+    public readonly Dictionary<ECardFeatures, int> Counters = new Dictionary<ECardFeatures, int>
     {
-        ["Mana"] = 0,
-        ["Attack"] = 0,
-        ["Health"] = 0
+        [ECardFeatures.Attack] = 0,
+        [ECardFeatures.Mana] = 0,
+        [ECardFeatures.Health] = 0
     };
-    
-    private Texture2D _texture;
-    
+
     private void Awake()
     {
         GetDefaultFeatures();
@@ -31,45 +24,24 @@ public class Card : MonoBehaviour
     
     public void SetRandomFeature()
     {
-        var key = _counters.ElementAt(CardHandler.GetRandomFeatureIndex()).Key;
-        _counters[key] = CardHandler.GetRandomFeatureValue();
+        var key = Counters.ElementAt(CardHandler.GetRandomFeatureIndex()).Key;
+        Counters[key] = CardHandler.GetRandomFeatureValue();
         SetFeatures();
     }
     
     private async void SetArt()
     {
-        _art.sprite = await CardHandler.GetRandomArt();
+        art = await CardHandler.GetRandomArt();
+        ArtChanged?.Invoke();
     }
 
     private void GetDefaultFeatures()
     {
-        _counters["Mana"] = CardHandler.GetRandomFeatureValue();
-        _counters["Attack"] = CardHandler.GetRandomFeatureValue();
-        _counters["Health"] = CardHandler.GetRandomFeatureValue(1);
+        Counters[ECardFeatures.Attack] = CardHandler.GetRandomFeatureValue();
+        Counters[ECardFeatures.Mana] = CardHandler.GetRandomFeatureValue();
+        Counters[ECardFeatures.Health] = CardHandler.GetRandomFeatureValue(1);
         SetFeatures();
     }
 
-    private void SetFeatures()
-    {
-        AnimateCounter(_ManaCost, _counters["Mana"]);
-        AnimateCounter(_AttackDamage, _counters["Attack"]);
-        AnimateCounter(_HealthPoints, _counters["Health"]).OnComplete(CheckHealth);
-    }
-
-    private void CheckHealth()
-    {
-        if(_counters["Health"] <= 0) Dispose();
-    }
-
-    private Tweener AnimateCounter(TMP_Text text, int to)
-    {
-        return DOVirtual.Float(int.Parse(text.text), to, _animCounterDuration, v
-            => text.text = Mathf.Floor(v).ToString(CultureInfo.InvariantCulture));
-    }
-
-    private void Dispose()
-    {
-        gameObject.SetActive(false);
-        Destroy(_texture);
-    }
+    private void SetFeatures() => FeatureChanged?.Invoke();
 }

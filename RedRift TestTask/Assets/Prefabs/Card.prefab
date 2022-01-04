@@ -660,8 +660,9 @@ GameObject:
   - component: {fileID: 812109377040276263}
   - component: {fileID: 7231975295965315185}
   - component: {fileID: -8283719232979940858}
-  - component: {fileID: 1923876492933557040}
+  - component: {fileID: -6611878822681244471}
   - component: {fileID: 2903754754629137299}
+  - component: {fileID: 1923876492933557040}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -787,7 +788,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1923876492933557040
+--- !u!114 &-6611878822681244471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -796,7 +797,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 812109377040276248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de5d442d8355bd44a81670763c4b79a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a899bc034c6bc648bd7f47204c5aee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _art: {fileID: 812109376764163774}
@@ -831,6 +832,23 @@ MonoBehaviour:
     _order: 1
   _UI: {fileID: 812109375288417639}
   _defaultUIOrder: 3
+--- !u!114 &1923876492933557040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812109377040276248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5d442d8355bd44a81670763c4b79a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _art: {fileID: 812109376764163774}
+  _ManaCost: {fileID: 2354649470805048132}
+  _AttackDamage: {fileID: 3386910346167439023}
+  _HealthPoints: {fileID: 8027235300427487593}
+  _animCounterDuration: 0.5
 --- !u!1 &2647972514128809699
 GameObject:
   m_ObjectHideFlags: 0

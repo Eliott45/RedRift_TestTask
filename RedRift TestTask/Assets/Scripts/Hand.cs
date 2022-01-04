@@ -27,7 +27,10 @@ public class Hand : MonoBehaviour
     
     public void ResetFeatureCards()
     {
-        foreach (var card in _cards) card.GetComponent<Card>().SetRandomFeature();
+        for (var i = _cards.Count - 1; i >= 0; i--)
+        {
+            _cards[i].GetComponent<Card>().SetRandomFeature();
+        }
     }
 
     /// <summary>
