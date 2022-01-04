@@ -28,12 +28,10 @@ public class Card : MonoBehaviour
         SetArt();
     }
     
-    private void OnDestroy () => Dispose();
-
     public void SetRandomFeature()
     {
-        var key = _counters.ElementAt(CardHandler.GetRandomIndex()).Key;
-        _counters[key] = CardHandler.GetRandomValue();
+        var key = _counters.ElementAt(CardHandler.GetRandomFeatureIndex()).Key;
+        _counters[key] = CardHandler.GetRandomFeatureValue();
         SetFeatures();
     }
     
@@ -47,9 +45,9 @@ public class Card : MonoBehaviour
 
     private void GetDefaultFeatures()
     {
-        _counters["Mana"] = CardHandler.GetRandomValue();
-        _counters["Attack"] = CardHandler.GetRandomValue();
-        _counters["Health"] = CardHandler.GetRandomValue(1);
+        _counters["Mana"] = CardHandler.GetRandomFeatureValue();
+        _counters["Attack"] = CardHandler.GetRandomFeatureValue();
+        _counters["Health"] = CardHandler.GetRandomFeatureValue(1);
         SetFeatures();
     }
 

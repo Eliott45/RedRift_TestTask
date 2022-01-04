@@ -16,7 +16,6 @@ public class Instantiater : MonoBehaviour
         var amount = Random.Range(4, 7);
         for (var i = 0; i < amount; i++)
         {
-            _cardPrefab.name = i.ToString(); // Нужно убрать
             Instantiate(_cardPrefab, _hand);
         }
     }

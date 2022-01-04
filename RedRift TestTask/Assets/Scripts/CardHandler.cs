@@ -13,12 +13,12 @@ public static class CardHandler
 
         if (www.result == UnityWebRequest.Result.Success) return DownloadHandlerTexture.GetContent(www);
         
-        Debug.LogError( $"{www.error}, URL:{www.url}" );
+        Debug.LogError( $"{www.error}, URL:{www.url}");
         
         return null;
     }
 
-    public static int GetRandomValue(int min = -2, int max = 10) => Random.Range(min, max);
+    public static int GetRandomFeatureValue(int min = -2, int max = 10) => Random.Range(min, max);
     
-    public static int GetRandomIndex() => Random.Range(0, 3);
+    public static int GetRandomFeatureIndex() => Random.Range(0, 3);
 }
