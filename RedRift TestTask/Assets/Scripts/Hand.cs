@@ -37,4 +37,9 @@ public class Hand : MonoBehaviour
             _cards[i].GetComponent<LayoutController>().SetLayout(-i);
         }
     }
+
+    public void ResetFeatureCards()
+    {
+        foreach (var card in _cards) card.GetComponent<Card>().SetRandomFeature();
+    }
 }

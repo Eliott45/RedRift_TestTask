@@ -1061,6 +1061,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _art: {fileID: 812109376764163774}
+  _ManaCost: {fileID: 812109376014840993}
+  _AttackDamage: {fileID: 812109375857099416}
+  _HealthPoints: {fileID: 812109375826681933}
 --- !u!114 &2903754754629137299
 MonoBehaviour:
   m_ObjectHideFlags: 0
