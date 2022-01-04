@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utils;
 
 public class Instantiater : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Instantiater : MonoBehaviour
 
     private void SpawnCards()
     {
-        var amount = Random.Range(4, 7);
+        var amount = CardHandler.GetRandomAmountInitialCards();
         for (var i = 0; i < amount; i++)
         {
             Instantiate(_cardPrefab, _hand);

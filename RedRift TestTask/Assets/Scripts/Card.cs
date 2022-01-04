@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 public class Card : MonoBehaviour
 {
@@ -37,10 +38,7 @@ public class Card : MonoBehaviour
     
     private async void SetArt()
     {
-        _texture = await CardHandler.GetRemoteRandomTexture();
-        _art.sprite = Sprite.Create(_texture, 
-                new Rect(0.0f, 0.0f, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 100f);
-
+        _art.sprite = await CardHandler.GetRandomArt();
     }
 
     private void GetDefaultFeatures()
