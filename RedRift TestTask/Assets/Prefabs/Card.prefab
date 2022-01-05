@@ -844,11 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5d442d8355bd44a81670763c4b79a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _art: {fileID: 812109376764163774}
-  _ManaCost: {fileID: 2354649470805048132}
-  _AttackDamage: {fileID: 3386910346167439023}
-  _HealthPoints: {fileID: 8027235300427487593}
-  _animCounterDuration: 0.5
+  art: {fileID: 0}
 --- !u!1 &2647972514128809699
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,9 +8,10 @@ namespace Card
 {
     public class Card : MonoBehaviour
     {
-        public Sprite art;
+        public Sprite Art { get; private set; }
         public event Action ArtChanged;
         public event Action FeatureChanged;
+        
         public readonly Dictionary<ECardFeatures, int> Counters = new Dictionary<ECardFeatures, int>
         {
             [ECardFeatures.Attack] = 0,
@@ -33,7 +34,7 @@ namespace Card
     
         private async void SetArt()
         {
-            art = await CardHandler.GetRandomArt();
+            Art = await CardHandler.GetRandomArt();
             ArtChanged?.Invoke();
         }
 

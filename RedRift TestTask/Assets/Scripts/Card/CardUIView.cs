@@ -66,7 +66,7 @@ namespace Card
             AnimateCounter(_HealthPoints, _card.Counters[ECardFeatures.Health]).OnComplete(CheckHealth);
         }
 
-        private void OnArtChanged() => _art.sprite = _card.art;
+        private void OnArtChanged() => _art.sprite = _card.Art;
         
         private Tweener AnimateCounter(TMP_Text text, int to)
         {
@@ -76,7 +76,7 @@ namespace Card
 
         private void CheckHealth()
         {
-            if (int.Parse(_HealthPoints.text) <= 0) Dispose();
+            if (int.Parse(_HealthPoints.text) <= 0) Dispose(); // Destroy => Dispose
         }
     
         private void Dispose()
