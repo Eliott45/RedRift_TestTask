@@ -29,7 +29,7 @@ public class Hand : MonoBehaviour
     {
         for (var i = _cards.Count - 1; i >= 0; i--)
         {
-            _cards[i].GetComponent<Card>().SetRandomFeature();
+            _cards[i].GetComponent<Card.Card>().SetRandomFeature();
         }
     }
 
