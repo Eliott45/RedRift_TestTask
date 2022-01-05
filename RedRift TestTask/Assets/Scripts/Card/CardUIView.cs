@@ -26,7 +26,7 @@ namespace Card
             }
             catch (Exception)
             {
-                enabled = false;
+                Dispose(); // Destroy
                 throw;
             }
             
